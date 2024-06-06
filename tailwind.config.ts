@@ -8,8 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundColor: {
-        darkest: '#10021c',
+      colors: {
+        background: 'var(--background)',
+        darkest: 'var(--darkest)',
+        'vary-dark': 'var(--very-dark)',
+        dark: 'var(--dark-800)',
+        'dark-700': 'var(--dark-700)',
+        'dark-600': 'var(--dark-600)',
+        medium: 'var(--medium)',
+        light: 'var(--light)',
+        '--very-light': 'var(--very-light)',
+        white: 'var(--text-white)',
       },
     },
   },

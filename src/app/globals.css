@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #10021c;
+    --darkest: #2e1065;
+    --very-dark: #4c1d95;
+    --dark-800: #5b21b6;
+    --dark-700: #6d28d9;
+    --dark-600: #7c3aed;
+    --medium: #8b5cf6;
+    --light: #a78bfa;
+    --very-light: #c4b5fd;
+    --text-white: #f5f3ff;
+  }
+}
+
+@layer components {
+  .connect-btn {
+    background: var(--darkest) !important;
+    color: var(--text-white) !important;
+    transition: all ease-in-out 0.15s !important;
+    &:hover {
+      background: var(--very-dark) !important;
+    }
+  }
+
+  .connected-btn {
+    border: 1px solid var(--darkest) !important;
+  }
+}

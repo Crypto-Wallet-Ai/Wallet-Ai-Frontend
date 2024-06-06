@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} bg-darkest`}>
+      <body className={`${inter.className} bg-background`}>
         <ThirdwebProvider>
           <Header />
           {children}
