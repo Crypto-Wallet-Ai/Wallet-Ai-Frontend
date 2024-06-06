@@ -16,7 +16,7 @@ export default function ConnectWallet() {
       secondaryButtonHoverBg: 'var(--very-dark)',
       secondaryButtonText: 'var(--text-white)',
       secondaryIconColor: 'var(--very-dark)',
-      secondaryIconHoverColor: '#a855f7',
+      secondaryIconHoverColor: 'var(--medium)',
       secondaryIconHoverBg: 'var(--darkest)',
     },
   });
