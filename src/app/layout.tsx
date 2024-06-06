@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThirdwebProvider } from '@/utils/constants/thirdwebProvider';
 import './globals.css';
+import Header from '@/components/Header/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,8 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <ThirdwebProvider>{children}</ThirdwebProvider>
+      <body className={`${inter.className} bg-darkest`}>
+        <ThirdwebProvider>
+          <Header />
+          {children}
+        </ThirdwebProvider>
       </body>
     </html>
   );
