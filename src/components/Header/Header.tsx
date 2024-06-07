@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import ConnectWallet from '../ConnectWallet/ConnectWallet';
+import Navigation from '../Navigation/Navigation';
 
 export default function Header() {
   return (
@@ -8,7 +9,10 @@ export default function Header() {
         <Image className='rounded-full' width={36} height={36} alt='Logo' src='/images/wallet-ai-logo.png' />
         <span>WalletAi</span>
       </div>
-      <ConnectWallet />
+      <div className='flex items-center gap-8'>
+        <Navigation />
+        <ConnectWallet />
+      </div>
     </header>
   );
 }

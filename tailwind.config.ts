@@ -17,7 +17,7 @@ const config: Config = {
         'dark-600': 'var(--dark-600)',
         medium: 'var(--medium)',
         light: 'var(--light)',
-        '--very-light': 'var(--very-light)',
+        'very-light': 'var(--very-light)',
         white: 'var(--text-white)',
       },
     },
