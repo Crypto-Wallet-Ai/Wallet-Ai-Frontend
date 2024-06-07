@@ -10,6 +10,78 @@ async function getData(): Promise<Payment[]> {
       status: 'pending',
       email: 'm@example.com',
     },
+    {
+      id: '8ed52',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: 'ed52f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '722f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '728ed5',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '7252f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '72852f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '728d52f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '72ed52f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '78ed52f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '28ed52f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '728ed52',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
+    {
+      id: '728ed2f',
+      amount: 100,
+      status: 'pending',
+      email: 'm@example.com',
+    },
     // ...
   ];
 }
