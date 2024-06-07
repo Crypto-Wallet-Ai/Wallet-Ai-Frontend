@@ -25,11 +25,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
   return (
     <div>
-      <div className='rounded-md border'>
+      <div className='border-very-dark rounded-md border'>
         <Table>
-          <TableHeader>
+          <TableHeader className='bg-darkest'>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow key={headerGroup.id} className='border-very-dark'>
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id} className='text-white'>
@@ -45,7 +45,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && 'selected'}
+                  className='border-very-dark'
+                >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className='text-white'>
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
