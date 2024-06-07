@@ -1,36 +1,58 @@
 'use client';
 
+import HashLink from '@/components/HashLink/HashLink';
 import { ColumnDef } from '@tanstack/react-table';
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export type Payment = {
-  id: string;
-  amount: number;
-  status: 'pending' | 'processing' | 'success' | 'failed';
-  email: string;
-};
-
-export const columns: ColumnDef<Payment>[] = [
+// @ts-ignore
+export const columns: ColumnDef<any> = [
   {
-    accessorKey: 'status',
-    header: 'Status',
-  },
-  {
-    accessorKey: 'email',
-    header: 'Email',
-  },
-  {
-    accessorKey: 'amount',
-    header: () => <div className='text-right'>Amount</div>,
+    accessorKey: 'walletAddress',
+    header: 'Wallet address',
+    // @ts-ignore
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue('amount'));
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      }).format(amount);
+      const address = row.getValue('walletAddress');
 
-      return <div className='text-right font-medium'>{formatted}</div>;
+      return (
+        <div className='bg-very-dark hover:bg-dark w-[10rem] cursor-pointer rounded-full py-2 text-center transition-all duration-150'>
+          <HashLink hash={address} type='address' className='text-white' />
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: 'roiInX',
+    header: 'ROI',
+    // @ts-ignore
+    cell: ({ row }) => {
+      const roi = row.getValue('roiInX');
+
+      return <span className='text-white'>{roi.toFixed(0)}x</span>;
+    },
+  },
+  {
+    accessorKey: 'wallet.badges',
+    header: 'Total badges',
+    id: 'badges',
+    // @ts-ignore
+    cell: ({ row }) => {
+      const badges = row.getValue('badges');
+
+      return <span>{badges.length}</span>;
+    },
+  },
+  {
+    accessorKey: 'transactionHash',
+    header: 'Transaction hash',
+    // @ts-ignore
+    cell: ({ row }) => {
+      const hash = row.getValue('transactionHash');
+
+      return (
+        <HashLink
+          hash={hash}
+          className='text-medium hover:text-light underline transition-all duration-150'
+        />
+      );
     },
   },
 ];
