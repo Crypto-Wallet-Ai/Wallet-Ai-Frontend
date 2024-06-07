@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         darkest: 'var(--darkest)',
-        'vary-dark': 'var(--very-dark)',
+        'very-dark': 'var(--very-dark)',
         dark: 'var(--dark-800)',
         'dark-700': 'var(--dark-700)',
         'dark-600': 'var(--dark-600)',
