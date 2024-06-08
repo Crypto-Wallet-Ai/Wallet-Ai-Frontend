@@ -5,6 +5,9 @@ export default function Navigation() {
     <nav>
       <ul className='flex items-center gap-6 text-white'>
         <li className='text-very-light hover:text-white hover:underline'>
+          <Link href='/'>Home</Link>
+        </li>
+        <li className='text-very-light hover:text-white hover:underline'>
           <Link href='/daily-roi'>Daily Roi</Link>
         </li>
         <li className='text-very-light hover:text-white hover:underline'>
