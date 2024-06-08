@@ -27,6 +27,7 @@ export default function ConnectWallet() {
         chain={chain}
         connectButton={{ className: 'connect-btn' }}
         detailsButton={{ className: 'connect-btn connected-btn' }}
+        switchButton={{ className: 'connect-btn' }}
         theme={customTheme}
         connectModal={{
           size: 'wide',
