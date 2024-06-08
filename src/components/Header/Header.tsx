@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ConnectWallet from '../ConnectWallet/ConnectWallet';
+// import ConnectWallet from '../ConnectWallet/ConnectWallet';
 import Navigation from '../Navigation/Navigation';
 
 export default function Header() {
@@ -11,7 +11,7 @@ export default function Header() {
       </div>
       <div className='flex items-center gap-8'>
         <Navigation />
-        <ConnectWallet />
+        {/* <ConnectWallet /> */}
       </div>
     </header>
   );
