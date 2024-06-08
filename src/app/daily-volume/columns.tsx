@@ -54,7 +54,7 @@ export const columns: ColumnDef<any> = [
     cell: ({ row }) => {
       const badges = row.getValue('badges');
 
-      return <span>{badges.length}</span>;
+      return <span>{badges?.length}</span>;
     },
   },
   {
