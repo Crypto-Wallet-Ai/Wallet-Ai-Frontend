@@ -1,7 +1,9 @@
+import Container from '@/components/Container/Container';
+
 export default function Home() {
   return (
-    <main>
-      <h1>Home</h1>
-    </main>
+    <Container>
+      <h1 className='text-center text-white'>Add some sort of home page with links to other pages</h1>
+    </Container>
   );
 }
