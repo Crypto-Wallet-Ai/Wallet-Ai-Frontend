@@ -1,6 +1,7 @@
 'use client';
 
 import HashLink from '@/components/HashLink/HashLink';
+import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 import { ColumnDef } from '@tanstack/react-table';
 
 // @ts-ignore
@@ -9,15 +10,7 @@ export const columns: ColumnDef<any> = [
     accessorKey: 'walletAddress',
     header: 'Wallet address',
     // @ts-ignore
-    cell: ({ row }) => {
-      const address = row.getValue('walletAddress');
-
-      return (
-        <div className='bg-very-dark hover:bg-dark w-[10rem] cursor-pointer rounded-full py-2 text-center transition-all duration-150'>
-          <HashLink hash={address} type='address' className='text-white' />
-        </div>
-      );
-    },
+    cell: ({ row }) => <WalletAddressBtn row={row} value='walletAddress' />,
   },
   {
     accessorKey: 'roiInX',
@@ -50,7 +43,7 @@ export const columns: ColumnDef<any> = [
       return (
         <HashLink
           hash={hash}
-          className='text-medium hover:text-light underline transition-all duration-150'
+          className='text-medium underline transition-all duration-150 hover:text-light'
         />
       );
     },
