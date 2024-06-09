@@ -1,7 +1,8 @@
 'use client';
 
-import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 import { ColumnDef } from '@tanstack/react-table';
+import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
+import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 
 // @ts-ignore
 export const columns: ColumnDef<any> = [
@@ -13,7 +14,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'totalBuys',
-    header: 'Total buys',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total buys' />,
     // @ts-ignore
     cell: ({ row }) => {
       const buysCount = row.getValue('totalBuys');
@@ -23,7 +25,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'totalSells',
-    header: 'Total sells',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total sells' />,
     // @ts-ignore
     cell: ({ row }) => {
       const sellsCount = row.getValue('totalSells');
@@ -33,7 +36,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'totalSwapCount',
-    header: 'Total swaps',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total swaps' />,
     // @ts-ignore
     cell: ({ row }) => {
       const swapsCount = row.getValue('totalSwapCount');
@@ -43,7 +47,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'totalPairsTraded',
-    header: 'Pairs traded',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Pairs traded' />,
     // @ts-ignore
     cell: ({ row }) => {
       const pairsTraded = row.getValue('totalPairsTraded');
@@ -53,7 +58,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'hitRate',
-    header: 'Profitable trades',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Profitable trades' />,
     // @ts-ignore
     cell: ({ row }) => {
       const hitRate = row.getValue('hitRate');
@@ -78,7 +84,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'totalVolumeUsd',
-    header: 'Total volume ($)',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total volume ($)' />,
     // @ts-ignore
     cell: ({ row }) => {
       const totalVolumeUsd = row.getValue('totalVolumeUsd');
@@ -89,7 +96,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'totalProfitUsd',
-    header: 'Total profit ($)',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total profit ($)' />,
     // @ts-ignore
     cell: ({ row }) => {
       const totalProfitUsd = row.getValue('totalProfitUsd');

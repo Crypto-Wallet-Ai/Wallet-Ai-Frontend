@@ -1,8 +1,9 @@
 'use client';
 
-import HashLink from '@/components/HashLink/HashLink';
-import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 import { ColumnDef } from '@tanstack/react-table';
+import HashLink from '@/components/HashLink/HashLink';
+import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
+import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 
 // @ts-ignore
 export const columns: ColumnDef<any> = [
@@ -14,7 +15,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'roiInX',
-    header: 'ROI',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='ROI' />,
     // @ts-ignore
     cell: ({ row }) => {
       const roi = row.getValue('roiInX');
@@ -24,7 +26,8 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'wallet.badges',
-    header: 'Total badges',
+    // @ts-ignore
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total badges' />,
     id: 'badges',
     // @ts-ignore
     cell: ({ row }) => {
