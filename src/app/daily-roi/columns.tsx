@@ -1,10 +1,9 @@
 'use client';
 
-import HashLink from '@/components/HashLink/HashLink';
-import { Button } from '@/components/ui/button';
-import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 import { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDown } from 'lucide-react';
+import HashLink from '@/components/HashLink/HashLink';
+import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
+import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 
 // @ts-ignore
 export const columns: ColumnDef<any> = [
@@ -17,14 +16,7 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'roiInX',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          ROI
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='ROI' />,
     // @ts-ignore
     cell: ({ row }) => {
       const roi = row.getValue('roiInX');
@@ -35,14 +27,7 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'wallet.badges',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Total badges
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total badges' />,
     id: 'badges',
     // @ts-ignore
     cell: ({ row }) => {

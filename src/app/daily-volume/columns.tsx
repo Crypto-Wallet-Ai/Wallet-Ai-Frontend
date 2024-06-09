@@ -1,23 +1,15 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 import { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDown } from 'lucide-react';
+import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
+import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 
 // @ts-ignore
 export const columns: ColumnDef<any> = [
   {
     accessorKey: 'rank',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Rank
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Rank' />,
   },
   {
     accessorKey: 'walletAddress',
@@ -28,14 +20,7 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'volumeInEth',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Volume (ETH)
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Volume (ETH)' />,
     // @ts-ignore
     cell: ({ row }) => {
       const volumeInEth = row.getValue('volumeInEth');
@@ -46,14 +31,7 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'volumeInUsd',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Volume ($)
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Volume ($)' />,
     // @ts-ignore
     cell: ({ row }) => {
       const volumeInUsd = row.getValue('volumeInUsd');
@@ -65,14 +43,7 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'volumeInStableCoin',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Volume (Stable)
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Volume (stable)' />,
     // @ts-ignore
     cell: ({ row }) => {
       const volumeStable = row.getValue('volumeInStableCoin');
@@ -83,14 +54,7 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'wallet.badges',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Total badges
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total badges' />,
     id: 'badges',
     // @ts-ignore
     cell: ({ row }) => {
@@ -102,14 +66,7 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'wallet.balances',
     // @ts-ignore
-    header: ({ column }) => {
-      return (
-        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
-          Eth balance
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Eth balance' />,
     id: 'balances',
     // @ts-ignore
     cell: ({ row }) => {
