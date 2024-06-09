@@ -1,8 +1,10 @@
 'use client';
 
 import HashLink from '@/components/HashLink/HashLink';
+import { Button } from '@/components/ui/button';
 import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
 import { ColumnDef } from '@tanstack/react-table';
+import { ArrowUpDown } from 'lucide-react';
 
 // @ts-ignore
 export const columns: ColumnDef<any> = [
@@ -14,7 +16,15 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'roiInX',
-    header: 'ROI',
+    // @ts-ignore
+    header: ({ column }) => {
+      return (
+        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
+          ROI
+          <ArrowUpDown className='ml-2 h-4 w-4' />
+        </Button>
+      );
+    },
     // @ts-ignore
     cell: ({ row }) => {
       const roi = row.getValue('roiInX');
@@ -24,7 +34,15 @@ export const columns: ColumnDef<any> = [
   },
   {
     accessorKey: 'wallet.badges',
-    header: 'Total badges',
+    // @ts-ignore
+    header: ({ column }) => {
+      return (
+        <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
+          Total badges
+          <ArrowUpDown className='ml-2 h-4 w-4' />
+        </Button>
+      );
+    },
     id: 'badges',
     // @ts-ignore
     cell: ({ row }) => {
