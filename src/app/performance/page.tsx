@@ -3,11 +3,10 @@ import { DataTable } from '@/components/ui/data-table';
 import fetchWalletPerformance from '@/utils/requests/fetchWalletPerformance';
 import { columns } from './columns';
 import PageHeader from '@/components/PageHeader/PageHeader';
-import { WalletPerformances } from '@/utils/types/performance';
+import { type WalletPerformance } from '@/utils/validations/performanceSchema';
 
 export default async function Page() {
-  const data: WalletPerformances = await fetchWalletPerformance();
-  const { walletPerformances } = data || {};
+  const data: WalletPerformance[] = await fetchWalletPerformance();
 
   return (
     <Container>
@@ -15,7 +14,7 @@ export default async function Page() {
         title='Wallet performance'
         text='Comprehensive analysis of trading profitability and activity'
       />
-      <DataTable columns={columns} data={walletPerformances} />
+      <DataTable columns={columns} data={data} />
     </Container>
   );
 }
