@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { EthPriceSchema } from './ethPrice';
 
 export const BadgeSchema = z.object({
   pairAddress: z.string(),
@@ -16,7 +17,7 @@ export const BalanceSchema = z.object({
 
 export const WalletSchema = z.object({
   alreadyScraped: z.boolean(),
-  lastUpdated: z.number(),
+  lastUpdated: z.number().optional(),
   isContract: z.boolean().optional(),
   badges: BadgeSchema.array().optional(),
   balances: BalanceSchema.array().optional(),
@@ -30,11 +31,6 @@ export const WalletRoiSchema = z.object({
   wallet: WalletSchema,
 });
 
-export const EthPriceSchema = z.object({
-  tokenSymbol: z.string(),
-  usdPrice: z.number(),
-});
-
 export const RoiResponseSchema = z.object({
   message: z.string(),
   walletRoiInX: WalletRoiSchema.array(),
@@ -43,6 +39,6 @@ export const RoiResponseSchema = z.object({
 
 export type RoiResponse = z.infer<typeof RoiResponseSchema>;
 export type Wallet = z.infer<typeof WalletSchema>;
-export type WalletRoi = z.infer<typeof WalletRoiSchema>[];
+export type WalletRoi = z.infer<typeof WalletRoiSchema>;
 export type Badge = z.infer<typeof BadgeSchema>;
 export type Balance = z.infer<typeof BalanceSchema>;
