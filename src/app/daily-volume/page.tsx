@@ -3,19 +3,16 @@ import { columns } from './columns';
 import { DataTable } from '@/components/ui/data-table';
 import Container from '@/components/Container/Container';
 import PageHeader from '@/components/PageHeader/PageHeader';
+import { VolumeResponse, WalletVolume } from '@/utils/types/volume';
 
 export default async function Page() {
-  const data = await fetchWalletVolume(0);
+  const data: WalletVolume = await fetchWalletVolume(0);
 
-  const {
-    ethPrice: { usdPrice: ethPriceUsd },
-    walletVolume,
-  } = data || {};
+  const { walletVolume } = data || {};
 
-  const rankedWalletVolume = walletVolume.map((wallet: any, index: number) => ({
+  const rankedWalletVolume = walletVolume.map((wallet: VolumeResponse, index: number) => ({
     ...wallet,
     rank: index + 1,
-    ethPriceUsd,
   }));
 
   return (
@@ -24,7 +21,6 @@ export default async function Page() {
         title='Wallet Volume'
         text='Showcasing wallets with unmatched trading volumes in the past 24 hours'
       />
-      {/* @ts-ignore */}
       <DataTable columns={columns} data={rankedWalletVolume} />
     </Container>
   );
