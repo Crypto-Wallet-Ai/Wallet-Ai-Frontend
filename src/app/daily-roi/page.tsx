@@ -1,4 +1,4 @@
-import { RoiData } from '@/utils/types/roi';
+import { RoiResponse } from '@/utils/types/roi';
 import fetchWalletRoi from '@/utils/requests/fetchWalletRoi';
 import { DataTable } from '@/components/ui/data-table';
 import PageHeader from '@/components/PageHeader/PageHeader';
@@ -7,7 +7,7 @@ import { columns } from './columns';
 
 export default async function Page() {
   const data = await fetchWalletRoi(0);
-  const walletRoi: RoiData[] = data.walletRoi;
+  const walletRoi: RoiResponse[] = data.walletRoi;
 
   return (
     <Container>

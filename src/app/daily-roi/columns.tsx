@@ -4,9 +4,9 @@ import { ColumnDef } from '@tanstack/react-table';
 import HashLink from '@/components/HashLink/HashLink';
 import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
 import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
-import { Badge, RoiData } from '@/utils/types/roi';
+import { Badge, RoiResponse } from '@/utils/types/roi';
 
-export const columns: ColumnDef<RoiData>[] = [
+export const columns: ColumnDef<RoiResponse>[] = [
   {
     accessorKey: 'walletAddress',
     header: 'Wallet address',
