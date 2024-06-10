@@ -3,8 +3,8 @@
 import { ColumnDef } from '@tanstack/react-table';
 import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
 import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
-import { WalletVolume } from '@/utils/validations/volumeSchema';
-import { Badge, Balance } from '@/utils/validations/roiSchema';
+import { type WalletVolume } from '@/utils/validations/volumeSchema';
+import { type Badge, type Balance } from '@/utils/validations/roiSchema';
 
 export const columns: ColumnDef<WalletVolume>[] = [
   {

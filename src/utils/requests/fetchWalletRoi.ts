@@ -1,6 +1,6 @@
 import endpoints from '../endpoints';
-import { RoiResponseSchema } from '../validations/roiSchema';
 import isError from '../helpers/isError';
+import { RoiResponseSchema } from '../validations/roiSchema';
 
 const fetchWalletRoi = async (page: number, withEthPrice = true) => {
   try {
