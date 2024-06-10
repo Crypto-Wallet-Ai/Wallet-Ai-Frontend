@@ -4,34 +4,29 @@ import { ColumnDef } from '@tanstack/react-table';
 import HashLink from '@/components/HashLink/HashLink';
 import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
 import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
+import { Badge, RoiData } from '@/utils/types/roi';
 
-// @ts-ignore
-export const columns: ColumnDef<any> = [
+export const columns: ColumnDef<RoiData>[] = [
   {
     accessorKey: 'walletAddress',
     header: 'Wallet address',
-    // @ts-ignore
     cell: ({ row }) => <WalletAddressBtn row={row} value='walletAddress' />,
   },
   {
     accessorKey: 'roiInX',
-    // @ts-ignore
     header: ({ column }) => <TableHeaderSortBtn column={column} header='ROI' />,
-    // @ts-ignore
     cell: ({ row }) => {
-      const roi = row.getValue('roiInX');
+      const roi = row.getValue('roiInX') as number;
 
       return <span className='text-white'>{roi.toFixed(0)}x</span>;
     },
   },
   {
     accessorKey: 'wallet.badges',
-    // @ts-ignore
     header: ({ column }) => <TableHeaderSortBtn column={column} header='Total badges' />,
     id: 'badges',
-    // @ts-ignore
     cell: ({ row }) => {
-      const badges = row.getValue('badges');
+      const badges = row.getValue('badges') as Badge[];
 
       return <span>{badges?.length}</span>;
     },
@@ -39,9 +34,8 @@ export const columns: ColumnDef<any> = [
   {
     accessorKey: 'transactionHash',
     header: 'Transaction hash',
-    // @ts-ignore
     cell: ({ row }) => {
-      const hash = row.getValue('transactionHash');
+      const hash = row.getValue('transactionHash') as string;
 
       return (
         <HashLink
