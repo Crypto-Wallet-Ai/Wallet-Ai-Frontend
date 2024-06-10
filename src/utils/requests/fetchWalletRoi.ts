@@ -1,6 +1,6 @@
 import endpoints from '../endpoints';
 import { RoiResponseSchema } from '../validations/roiSchema';
-import isError from './isError';
+import isError from '../helpers/isError';
 
 const fetchWalletRoi = async (page: number, withEthPrice = true) => {
   try {
@@ -14,7 +14,7 @@ const fetchWalletRoi = async (page: number, withEthPrice = true) => {
       return [];
     }
 
-    return validatedData.data?.walletRoiInX;
+    return validatedData.data.walletRoiInX;
   } catch (error) {
     if (isError(error)) {
       console.log('Error fetching wallet ROI:', { error, message: error.message });
