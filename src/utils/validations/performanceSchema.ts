@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 const TimeFilterSchema = z.union([z.literal('1M'), z.literal('3W'), z.literal('2W'), z.literal('1W')]);
 
-export const PerformanceResponseSchema = z.object({
+export const WalletPerformancesSchema = z.object({
   hitRate: z.number(),
   hitRatePercentage: z.number(),
   place: z.number(),
@@ -21,4 +21,10 @@ export const PerformanceResponseSchema = z.object({
   wallet: z.string(),
 });
 
+export const PerformanceResponseSchema = z.object({
+  messsage: z.string().optional(),
+  walletPerformances: WalletPerformancesSchema.array(),
+});
+
 export type PerformanceResponse = z.infer<typeof PerformanceResponseSchema>;
+export type WalletPerformance = z.infer<typeof WalletPerformancesSchema>;
