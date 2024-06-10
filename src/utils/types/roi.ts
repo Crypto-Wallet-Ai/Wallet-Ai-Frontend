@@ -19,7 +19,7 @@ export type RoiWallet = {
   balances: Balance[];
 };
 
-export type RoiData = {
+export type RoiResponse = {
   walletAddress: string;
   roiInX: number;
   timestamp: number;
