@@ -6,7 +6,7 @@ import Container from '@/components/Container/Container';
 import { columns } from './columns';
 
 export default async function Page() {
-  const data: WalletRoi = await fetchWalletRoi(0);
+  const data: WalletRoi[] = await fetchWalletRoi(0);
 
   return (
     <Container>

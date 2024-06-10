@@ -3,14 +3,12 @@ import { columns } from './columns';
 import { DataTable } from '@/components/ui/data-table';
 import Container from '@/components/Container/Container';
 import PageHeader from '@/components/PageHeader/PageHeader';
-import { VolumeResponse, WalletVolume } from '@/utils/types/volume';
+import { WalletVolume } from '@/utils/validations/volumeSchema';
 
 export default async function Page() {
-  const data: WalletVolume = await fetchWalletVolume(0);
+  const data: WalletVolume[] = await fetchWalletVolume(0);
 
-  const { walletVolume } = data || {};
-
-  const rankedWalletVolume = walletVolume.map((wallet: VolumeResponse, index: number) => ({
+  const rankedWalletVolume = data.map((wallet: WalletVolume, index: number) => ({
     ...wallet,
     rank: index + 1,
   }));

@@ -3,10 +3,10 @@
 import { ColumnDef } from '@tanstack/react-table';
 import TableHeaderSortBtn from '@/components/TableHeaderSortBtn/TableHeaderSortBtn';
 import WalletAddressBtn from '@/components/WalletAddressBtn/WalletAddressBtn';
-import { VolumeResponse } from '@/utils/types/volume';
-import { Badge, Balance } from '@/utils/types/wallet';
+import { WalletVolume } from '@/utils/validations/volumeSchema';
+import { Badge, Balance } from '@/utils/validations/roiSchema';
 
-export const columns: ColumnDef<VolumeResponse>[] = [
+export const columns: ColumnDef<WalletVolume>[] = [
   {
     accessorKey: 'rank',
     header: ({ column }) => <TableHeaderSortBtn column={column} header='Rank' />,
