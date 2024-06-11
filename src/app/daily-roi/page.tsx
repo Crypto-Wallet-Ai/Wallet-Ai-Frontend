@@ -5,13 +5,16 @@ import PageHeader from '@/components/PageHeader/PageHeader';
 import Container from '@/components/Container/Container';
 import { columns } from './columns';
 
-export default async function Page() {
-  const data: WalletRoi[] = await fetchWalletRoi(0);
+export default async function Page({ searchParams }: { searchParams?: Record<string, string | string[]> }) {
+  const pageParam = searchParams?.page;
+  const currentPage = Array.isArray(pageParam) ? parseInt(pageParam[0], 10) : parseInt(pageParam || '0', 10);
+
+  const data: WalletRoi[] = await fetchWalletRoi(currentPage);
 
   return (
     <Container>
       <PageHeader title='wallet roi' text='Discover wallets with the highest ROI in the last 24 hours' />
-      <DataTable columns={columns} data={data} />
+      <DataTable columns={columns} data={data} currentPage={currentPage} />
     </Container>
   );
 }
