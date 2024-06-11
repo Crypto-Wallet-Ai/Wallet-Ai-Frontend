@@ -1,13 +1,13 @@
 import fetchWalletVolume from '@/utils/requests/fetchWalletVolume';
-import { columns } from './columns';
+import { WalletVolume } from '@/utils/validations/volumeSchema';
+import { getCurrentPage } from '@/utils/helpers/searchParams';
 import { DataTable } from '@/components/ui/data-table';
 import Container from '@/components/Container/Container';
 import PageHeader from '@/components/PageHeader/PageHeader';
-import { WalletVolume } from '@/utils/validations/volumeSchema';
+import { columns } from './columns';
 
 export default async function Page({ searchParams }: { searchParams?: Record<string, string | string[]> }) {
-  const pageParam = searchParams?.page;
-  const currentPage = Array.isArray(pageParam) ? parseInt(pageParam[0], 10) : parseInt(pageParam || '0', 10);
+  const currentPage = getCurrentPage(searchParams);
   const PAGE_SIZE = 20;
 
   const data: WalletVolume[] = await fetchWalletVolume(currentPage);
