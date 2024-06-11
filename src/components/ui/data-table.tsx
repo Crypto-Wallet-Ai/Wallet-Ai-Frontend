@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
   ColumnDef,
@@ -7,7 +8,6 @@ import {
   getCoreRowModel,
   SortingState,
   useReactTable,
-  getPaginationRowModel,
   getSortedRowModel,
 } from '@tanstack/react-table';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -16,16 +16,17 @@ import { Button } from './button';
 type DataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  currentPage?: number;
 };
 
-export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data, currentPage = 0 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
+  const router = useRouter();
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
     state: {
@@ -33,9 +34,19 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
     },
   });
 
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      router.push(`?page=${currentPage - 1}`);
+    }
+  };
+
+  const handleNextPage = () => {
+    router.push(`?page=${currentPage + 1}`);
+  };
+
   return (
     <div>
-      <div className='rounded-md border border-very-dark'>
+      <div className='max-h-[800px] overflow-y-auto rounded-md border border-very-dark'>
         <Table>
           <TableHeader className='bg-darkest'>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -78,20 +89,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
         </Table>
       </div>
       <div className='flex items-center justify-end space-x-2 py-4 text-white'>
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
+        <Button variant='outline' size='sm' onClick={handlePreviousPage} disabled={currentPage === 0}>
           Previous
         </Button>
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
+        <span>{currentPage + 1}</span>
+        <Button variant='outline' size='sm' onClick={handleNextPage} disabled={!table.getCanNextPage()}>
           Next
         </Button>
       </div>
