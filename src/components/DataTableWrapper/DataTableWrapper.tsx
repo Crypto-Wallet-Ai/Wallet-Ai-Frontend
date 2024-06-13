@@ -26,8 +26,6 @@ export function DataTableWrapper<TData, TValue>({
   columns,
   currentPage = 0,
 }: DataTableWrapperProps<TData, TValue>) {
-  console.log({ columns });
-
   return (
     <Suspense fallback={<LoadingSkeleton />}>
       <DataFetcher fetchData={fetchData}>
