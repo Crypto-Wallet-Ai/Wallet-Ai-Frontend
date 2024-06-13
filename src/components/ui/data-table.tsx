@@ -46,7 +46,7 @@ export function DataTable<TData, TValue>({ columns, data, currentPage = 0 }: Dat
 
   return (
     <div>
-      <div className='max-h-[800px] overflow-y-auto rounded-md border border-very-dark'>
+      <div className='scrollbar-thin max-h-[800px] overflow-y-auto rounded-md border border-very-dark'>
         <Table>
           <TableHeader className='bg-darkest'>
             {table.getHeaderGroups().map((headerGroup) => (
