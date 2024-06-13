@@ -20,6 +20,9 @@ const config: Config = {
         'very-light': 'var(--very-light)',
         white: 'var(--text-white)',
       },
+      minHeight: {
+        'not-found': 'calc(100vh - 69px)',
+      },
     },
   },
   plugins: [],
