@@ -3,6 +3,8 @@ import isError from '../helpers/isError';
 import { VolumeResponseSchema } from '../validations/volumeSchema';
 
 const fetchWalletVolume = async (page: number, withEthPrice = true) => {
+  const PAGE_SIZE = 20;
+
   try {
     const res = await fetch(endpoints.getWalletVolume(page, withEthPrice));
     const data = await res.json();
@@ -14,7 +16,12 @@ const fetchWalletVolume = async (page: number, withEthPrice = true) => {
       return [];
     }
 
-    return validatedData.data.walletVolume;
+    const withRank = validatedData.data.walletVolume.map((wallet, i) => ({
+      rank: page * PAGE_SIZE + i + 1,
+      ...wallet,
+    }));
+
+    return withRank;
   } catch (error) {
     if (isError(error)) {
       console.log('Error fetching wallet ROI:', { error, message: error.message });
