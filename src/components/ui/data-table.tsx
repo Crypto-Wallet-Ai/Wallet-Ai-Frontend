@@ -88,7 +88,7 @@ export function DataTable<TData, TValue>({ columns, data, currentPage = 0 }: Dat
           </TableBody>
         </Table>
       </div>
-      <div className='flex items-center justify-end space-x-2 py-4 text-white'>
+      <div className='flex items-center justify-center space-x-2 py-4 text-white sm:justify-end'>
         <Button variant='outline' size='sm' onClick={handlePreviousPage} disabled={currentPage === 0}>
           Previous
         </Button>
