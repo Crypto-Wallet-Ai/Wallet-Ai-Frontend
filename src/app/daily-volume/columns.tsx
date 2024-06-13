@@ -51,7 +51,7 @@ export const columns: ColumnDef<WalletVolume>[] = [
   },
   {
     accessorKey: 'wallet.badges',
-    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total badges' />,
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Badges' />,
     id: 'badges',
     cell: ({ row }) => {
       const badges = row.getValue('badges') as Badge[];

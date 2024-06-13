@@ -23,7 +23,7 @@ export const columns: ColumnDef<WalletRoi>[] = [
   },
   {
     accessorKey: 'wallet.badges',
-    header: ({ column }) => <TableHeaderSortBtn column={column} header='Total badges' />,
+    header: ({ column }) => <TableHeaderSortBtn column={column} header='Badges' />,
     id: 'badges',
     cell: ({ row }) => {
       const badges = row.getValue('badges') as Badge[];
@@ -33,7 +33,7 @@ export const columns: ColumnDef<WalletRoi>[] = [
   },
   {
     accessorKey: 'transactionHash',
-    header: 'Transaction hash',
+    header: 'Transaction',
     cell: ({ row }) => {
       const hash = row.getValue('transactionHash') as string;
 
