@@ -21,7 +21,7 @@ const config: Config = {
         white: 'var(--text-white)',
       },
       minHeight: {
-        'not-found': 'calc(100vh - 69px)',
+        'minus-header': 'calc(100vh - 69px)',
       },
     },
   },

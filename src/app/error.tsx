@@ -10,7 +10,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   }, [error]);
 
   return (
-    <div className='min-h-not-found flex flex-col items-center justify-center gap-3 text-white'>
+    <div className='min-h-minus-header flex flex-col items-center justify-center gap-3 text-white'>
       <Image className='rounded-full' width={128} height={128} alt='Logo' src='/images/wallet-ai-logo.png' />
       <h2 className='text-3xl'>Something went wrong!</h2>
       <span>{error.message}</span>
