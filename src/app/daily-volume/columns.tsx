@@ -10,6 +10,11 @@ export const columns: ColumnDef<WalletVolume>[] = [
   {
     accessorKey: 'rank',
     header: ({ column }) => <TableHeaderSortBtn column={column} header='Rank' />,
+    cell: ({ row }) => {
+      const rank = row.getValue('rank');
+
+      return rank;
+    },
   },
   {
     accessorKey: 'walletAddress',
