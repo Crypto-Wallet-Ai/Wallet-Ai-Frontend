@@ -56,7 +56,7 @@ export const columns: ColumnDef<WalletVolume>[] = [
     cell: ({ row }) => {
       const badges = row.getValue('badges') as Badge[];
 
-      return <span>{badges?.length}</span>;
+      return <span>{badges?.length || 0}</span>;
     },
   },
   {
