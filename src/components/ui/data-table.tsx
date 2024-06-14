@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { IoChevronForward, IoChevronBack } from 'react-icons/io5';
+
 import {
   ColumnDef,
   flexRender,
@@ -89,12 +91,18 @@ export function DataTable<TData, TValue>({ columns, data, currentPage = 0 }: Dat
         </Table>
       </div>
       <div className='flex items-center justify-center space-x-2 py-4 text-white sm:justify-end'>
-        <Button variant='outline' size='sm' onClick={handlePreviousPage} disabled={currentPage === 0}>
-          Previous
+        <Button size='sm' onClick={handlePreviousPage} disabled={currentPage === 0}>
+          <div className='flex items-center gap-1 text-very-light transition-all duration-150 hover:text-white'>
+            <IoChevronBack size={18} />
+            <span>Previous</span>
+          </div>
         </Button>
         <span>{currentPage + 1}</span>
-        <Button variant='outline' size='sm' onClick={handleNextPage} disabled={!table.getCanNextPage()}>
-          Next
+        <Button size='sm' onClick={handleNextPage} disabled={!table.getCanNextPage()}>
+          <div className='flex items-center gap-1 text-very-light transition-all duration-150 hover:text-white'>
+            <span>Next</span>
+            <IoChevronForward size={18} />
+          </div>
         </Button>
       </div>
     </div>
