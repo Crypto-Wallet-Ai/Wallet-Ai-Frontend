@@ -7,8 +7,8 @@ import Header from '@/components/Header/Header';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Wallet Ai',
-  description: 'Profitabliliy data from top wallets',
+  title: 'WalletAi',
+  description: 'Profitability Metrics from Top Performing Wallets',
 };
 
 export default function RootLayout({
