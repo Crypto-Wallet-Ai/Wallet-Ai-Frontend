@@ -6,6 +6,11 @@ const fetchWalletRoi = async (page: number, withEthPrice = true) => {
   try {
     const res = await fetch(endpoints.getWalletRoi(page, withEthPrice));
     const data = await res.json();
+    console.log({ res, data });
+
+    if (data?.message === 'failure') {
+      throw new Error('Something went wrong fetching the data');
+    }
 
     const validatedData = RoiResponseSchema.safeParse(data);
 
@@ -18,6 +23,7 @@ const fetchWalletRoi = async (page: number, withEthPrice = true) => {
   } catch (error) {
     if (isError(error)) {
       console.log('Error fetching wallet ROI:', { error, message: error.message });
+      throw error;
     } else {
       console.log('Unexpected error:', error);
     }

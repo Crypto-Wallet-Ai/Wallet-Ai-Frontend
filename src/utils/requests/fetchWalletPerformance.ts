@@ -7,6 +7,10 @@ const fetchWalletPerformance = async (page = 0, type = '1M', withEthPrice = true
     const res = await fetch(endpoints.getWalletPerformance(page, type, withEthPrice));
     const data = await res.json();
 
+    if (data?.message === 'failure') {
+      throw new Error('Something went wrong fetching the data');
+    }
+
     const validatedData = PerformanceResponseSchema.safeParse(data);
 
     if (!validatedData.success) {
@@ -18,6 +22,7 @@ const fetchWalletPerformance = async (page = 0, type = '1M', withEthPrice = true
   } catch (error) {
     if (isError(error)) {
       console.log('Error fetching wallet ROI:', { error, message: error.message });
+      throw error;
     } else {
       console.log('Unexpected error:', error);
     }
